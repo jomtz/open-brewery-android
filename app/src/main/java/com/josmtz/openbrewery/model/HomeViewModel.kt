@@ -1,4 +1,4 @@
-package com.josmtz.openbrewery.ui.home
+package com.josmtz.openbrewery.model
 
 import androidx.lifecycle.ViewModel
 

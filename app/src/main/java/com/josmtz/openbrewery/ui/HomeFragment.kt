@@ -1,4 +1,4 @@
-package com.josmtz.openbrewery.ui.home
+package com.josmtz.openbrewery.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
