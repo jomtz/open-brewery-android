@@ -5,13 +5,13 @@ import androidx.room.Insert
 import androidx.room.Update
 
 @Dao
-interface BreweriesDao {
+interface BreweryDao {
 
     @Insert
-    fun insert(brewery: Breweries)
+    fun insert(brewery: Brewery)
 
     @Update
-    fun update(brewery: Breweries)
+    fun update(brewery: Brewery)
 
 
 }

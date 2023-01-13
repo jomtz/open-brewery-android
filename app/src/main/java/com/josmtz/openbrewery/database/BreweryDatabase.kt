@@ -3,24 +3,24 @@ package com.josmtz.openbrewery.database
 import android.content.Context
 import androidx.room.*
 
-@Database(version = 1, entities = [Breweries::class], exportSchema = false)
-abstract class BreweriesDatabase : RoomDatabase() {
+@Database(version = 1, entities = [Brewery::class], exportSchema = false)
+abstract class BreweryDatabase : RoomDatabase() {
 
-    abstract val breweriesDao: BreweriesDao
+    abstract val breweryDao: BreweryDao
 
     companion object{
 
         @Volatile
-        private var INSTANCE: BreweriesDatabase? = null
+        private var INSTANCE: BreweryDatabase? = null
 
-        fun getInstance(context: Context): BreweriesDatabase {
+        fun getInstance(context: Context): BreweryDatabase {
             synchronized(this) {
                 var instance = INSTANCE
 
                 if (instance == null) {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
-                        BreweriesDatabase::class.java,
+                        BreweryDatabase::class.java,
                         "brewery_listing_database"
                     )
                         .fallbackToDestructiveMigration()

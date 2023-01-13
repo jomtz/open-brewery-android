@@ -3,8 +3,8 @@ package com.josmtz.openbrewery.database
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "breweries_table")
-data class Breweries(
+@Entity(tableName = "brewery_listing_table")
+data class Brewery(
 
     @PrimaryKey(autoGenerate = true)
     var key: Long = 0L,
