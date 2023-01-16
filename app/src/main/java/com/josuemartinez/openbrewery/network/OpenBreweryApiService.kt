@@ -1,7 +1,5 @@
-package com.josmtz.openbrewery.network
+package com.josuemartinez.openbrewery.network
 
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
@@ -10,10 +8,6 @@ import retrofit2.http.Query
 
 
 private const val BASE_URL = "https://api.openbrewerydb.org/"
-enum class OpenBreweryApiFilter(val value: String) {
-    SHOW_RENT("rent"), SHOW_BUY("buy"), SHOW_ALL("all")
-}
-
 
 /**
  * Use the Retrofit builder to build a retrofit object using a Scalars converter.

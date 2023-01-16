@@ -1,4 +1,4 @@
-package com.josmtz.openbrewery
+package com.josuemartinez.openbrewery
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

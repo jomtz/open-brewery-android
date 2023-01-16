@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.josmtz.openbrewery.ui.HomeFragment"
+        android:name="com.josuemartinez.openbrewery.ui.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" />
 

@@ -1,4 +1,4 @@
-package com.josmtz.openbrewery.database
+package com.josuemartinez.openbrewery.database
 
 import android.content.Context
 import androidx.room.*

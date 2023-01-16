@@ -1,4 +1,4 @@
-package com.josmtz.openbrewery.ui
+package com.josuemartinez.openbrewery.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.josmtz.openbrewery.R
-import com.josmtz.openbrewery.databinding.FragmentHomeBinding
+import com.josuemartinez.openbrewery.R
+import com.josuemartinez.openbrewery.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 
