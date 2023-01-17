@@ -1,8 +1,10 @@
 package com.josuemartinez.openbrewery.network
 
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Call
 import retrofit2.Retrofit
-import retrofit2.converter.scalars.ScalarsConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -10,13 +12,21 @@ import retrofit2.http.Query
 private const val BASE_URL = "https://api.openbrewerydb.org/"
 
 /**
- * Use the Retrofit builder to build a retrofit object using a Scalars converter.
+ * Build the Moshi object that Retrofit will be using, making sure to add the Kotlin adapter for
+ * full Kotlin compatibility.
  */
-private val retrofit = Retrofit.Builder()
-    .addConverterFactory(ScalarsConverterFactory.create())
-    .baseUrl(BASE_URL)
+private val moshi = Moshi.Builder()
+    .add(KotlinJsonAdapterFactory())
     .build()
 
+/**
+ * Use the Retrofit builder to build a retrofit object using a Moshi converter with our Moshi
+ * object.
+ */
+private val retrofit = Retrofit.Builder()
+    .addConverterFactory(MoshiConverterFactory.create(moshi))
+    .baseUrl(BASE_URL)
+    .build()
 
 
 
@@ -32,6 +42,8 @@ interface OpenBreweryApiService {
  * A public Api object that exposes the lazy-initialized Retrofit service
  */
 object OpenBreweryApi {
-    val retrofitService : OpenBreweryApiService by lazy { retrofit.create(OpenBreweryApiService::class.java) }
+    val retrofitService : OpenBreweryApiService by lazy {
+        retrofit.create(OpenBreweryApiService::class.java)
+    }
 }
 
