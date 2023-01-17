@@ -2,6 +2,7 @@ package com.josuemartinez.openbrewery.database
 
 import android.content.Context
 import androidx.room.*
+import com.josuemartinez.openbrewery.model.Brewery
 
 @Database(version = 1, entities = [Brewery::class], exportSchema = false)
 abstract class BreweryDatabase : RoomDatabase() {
