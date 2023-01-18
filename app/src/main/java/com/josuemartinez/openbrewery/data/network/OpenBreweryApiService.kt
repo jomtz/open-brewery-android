@@ -33,7 +33,7 @@ private val retrofit = Retrofit.Builder()
 interface OpenBreweryApiService {
 
     @GET("breweries")
-    suspend fun getProperties(@Query("filter") type: String): List<OpenBreweryData>
+    //suspend fun getProperties(@Query("filter") type: String): List<OpenBreweryData>
     fun getProperties():
             Call<String>
 }

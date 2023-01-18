@@ -35,7 +35,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun listOfWords(){
-        binding.textview.text = viewModel.wordList.toString()
+        //binding.textview.text = viewModel.wordList.toString()
     }
 
 
