@@ -1,4 +1,4 @@
-package com.josuemartinez.openbrewery.model.network
+package com.josuemartinez.openbrewery.data.network
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
