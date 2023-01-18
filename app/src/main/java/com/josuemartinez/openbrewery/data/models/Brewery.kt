@@ -1,44 +1,27 @@
 package com.josuemartinez.openbrewery.data.models
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "brewery_listing_table")
+@Entity(tableName = "brewery_table")
 data class Brewery(
 
-    @PrimaryKey(autoGenerate = true)
-    var key: Long = 0L,
-
-    val id: String,
-
-    val name: String,
-
-    val brewery_type: String,
-
-    val street: String,
-
-    val address_2: String,
-
-    val address_3: String,
-
-    val city: String,
-
-    val state: String,
-
-    val county_province: String,
-
-    val postal_code: String,
-
-    val country: String,
-
-    val longitude: String,
-
-    val latitude: String,
-
-    val phone: String,
-
-    val website_url: String,
-
-    //"updated_at": "2023-01-04T04:46:02.393Z",
-    //"created_at": "2023-01-04T04:46:02.393Z"
+    @PrimaryKey val id: String,
+    @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "brewery_type") val breweryType: String?,
+    @ColumnInfo(name = "street") val street: String?,
+    @ColumnInfo(name = "address_2") val address2: String?,
+    @ColumnInfo(name = "address_3") val address3: String?,
+    @ColumnInfo(name = "city") val city: String?,
+    @ColumnInfo(name = "state") val state: String?,
+    @ColumnInfo(name = "county_province") val countyProvince: String?,
+    @ColumnInfo(name = "postal_code") val postalCode: String?,
+    @ColumnInfo(name = "country") val country: String?,
+    @ColumnInfo(name = "longitude") val longitude: String?,
+    @ColumnInfo(name = "latitude") val latitude: String?,
+    @ColumnInfo(name = "phone") val phone: String?,
+    @ColumnInfo(name = "website_url") val websiteUrl: String?,
+    @ColumnInfo(name = "updated_at") val updatedAt: String?,
+    @ColumnInfo(name = "created_at") val createdAt: String?
 )
