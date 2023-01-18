@@ -1,9 +1,10 @@
-package com.josuemartinez.openbrewery
+package com.josuemartinez.openbrewery.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.josuemartinez.openbrewery.R
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 

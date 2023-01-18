@@ -1,4 +1,4 @@
-package com.josuemartinez.openbrewery.model
+package com.josuemartinez.openbrewery.model.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

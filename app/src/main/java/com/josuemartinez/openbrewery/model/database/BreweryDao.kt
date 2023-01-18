@@ -1,9 +1,9 @@
-package com.josuemartinez.openbrewery.database
+package com.josuemartinez.openbrewery.model.database
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Update
-import com.josuemartinez.openbrewery.model.Brewery
+import com.josuemartinez.openbrewery.model.models.Brewery
 
 @Dao
 interface BreweryDao {

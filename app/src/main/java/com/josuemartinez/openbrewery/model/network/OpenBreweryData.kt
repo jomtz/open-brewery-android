@@ -1,4 +1,4 @@
-package com.josuemartinez.openbrewery.network
+package com.josuemartinez.openbrewery.model.network
 
 
 data class OpenBreweryData(
