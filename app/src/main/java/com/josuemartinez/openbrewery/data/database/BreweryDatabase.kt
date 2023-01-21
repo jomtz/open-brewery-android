@@ -1,36 +1,27 @@
 package com.josuemartinez.openbrewery.data.database
 
 import android.content.Context
-import androidx.room.*
-import com.josuemartinez.openbrewery.data.models.Brewery
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
 
-@Database(version = 1, entities = [Brewery::class], exportSchema = false)
+@Database(version = 1, entities = [DatabaseBrewery::class], exportSchema = false)
 abstract class BreweryDatabase : RoomDatabase() {
 
     abstract val breweryDao: BreweryDao
+}
 
-    companion object{
+private lateinit var INSTANCE: BreweryDatabase
 
-        @Volatile
-        private var INSTANCE: BreweryDatabase? = null
-
-        fun getDatabase(context: Context): BreweryDatabase {
-            synchronized(this) {
-                var instance = INSTANCE
-
-                if (instance == null) {
-                    instance = Room.databaseBuilder(
-                        context.applicationContext,
-                        BreweryDatabase::class.java,
-                        "brewery_database"
-                    )
-                        .fallbackToDestructiveMigration()
-                        .build()
-
-                    INSTANCE = instance
-                }
-                return instance
-            }
+fun getDatabase(context: Context): BreweryDatabase {
+    synchronized(BreweryDatabase::class.java) {
+        if (!::INSTANCE.isInitialized) {
+            INSTANCE = Room.databaseBuilder(
+                context.applicationContext,
+                BreweryDatabase::class.java,
+                "brewery_database"
+            ).build()
         }
     }
+    return INSTANCE
 }
