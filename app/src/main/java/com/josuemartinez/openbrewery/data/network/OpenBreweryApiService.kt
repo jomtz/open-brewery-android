@@ -1,12 +1,12 @@
 package com.josuemartinez.openbrewery.data.network
 
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import retrofit2.Call
+import kotlinx.coroutines.Deferred
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Query
 
 
 private const val BASE_URL = "https://api.openbrewerydb.org/"
@@ -24,8 +24,9 @@ private val moshi = Moshi.Builder()
  * object.
  */
 private val retrofit = Retrofit.Builder()
-    .addConverterFactory(MoshiConverterFactory.create(moshi))
     .baseUrl(BASE_URL)
+    .addConverterFactory(MoshiConverterFactory.create(moshi))
+    .addCallAdapterFactory(CoroutineCallAdapterFactory())
     .build()
 
 
@@ -33,9 +34,7 @@ private val retrofit = Retrofit.Builder()
 interface OpenBreweryApiService {
 
     @GET("breweries")
-    //suspend fun getProperties(@Query("filter") type: String): List<OpenBreweryData>
-    fun getProperties():
-            Call<String>
+    fun getBreweryListAsync(): Deferred<NetworkBreweryContainer>
 }
 
 /**

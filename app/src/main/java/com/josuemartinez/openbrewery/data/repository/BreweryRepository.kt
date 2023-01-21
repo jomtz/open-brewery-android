@@ -5,6 +5,8 @@ import androidx.lifecycle.Transformations
 import com.josuemartinez.openbrewery.data.database.BreweryDatabase
 import com.josuemartinez.openbrewery.data.database.asDomainModel
 import com.josuemartinez.openbrewery.data.models.Brewery
+import com.josuemartinez.openbrewery.data.network.OpenBreweryApi.retrofitService
+import com.josuemartinez.openbrewery.data.network.asDatabaseModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -26,7 +28,8 @@ class BreweryRepository(private val database: BreweryDatabase) {
 
     suspend fun refreshBreweries() {
         withContext(Dispatchers.IO) {
-
+            val breweryList = retrofitService.getBreweryListAsync().await()
+            database.breweryDao.insertAll(*breweryList.asDatabaseModel())
         }
     }
 
