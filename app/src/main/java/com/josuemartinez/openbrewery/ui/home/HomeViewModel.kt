@@ -1,16 +1,25 @@
 package com.josuemartinez.openbrewery.ui.home
 
+import android.app.Application
 import android.util.Log
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.viewModelScope
+import com.josuemartinez.openbrewery.data.database.BreweryDatabase.Companion.getDatabase
+import com.josuemartinez.openbrewery.data.repository.BreweryRepository
+import kotlinx.coroutines.launch
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
+    private val database = getDatabase(application)
+    private val breweryRepository = BreweryRepository(database)
 
     lateinit var wordList: MutableList<String>
 
     init {
         Log.i("GameViewModel", "GameViewModel Created!" )
-
+        viewModelScope.launch {
+            breweryRepository.refreshBreweries()
+        }
 
         breweryList()
 

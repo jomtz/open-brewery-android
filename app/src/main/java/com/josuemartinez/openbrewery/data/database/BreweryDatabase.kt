@@ -14,7 +14,7 @@ abstract class BreweryDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: BreweryDatabase? = null
 
-        fun getInstance(context: Context): BreweryDatabase {
+        fun getDatabase(context: Context): BreweryDatabase {
             synchronized(this) {
                 var instance = INSTANCE
 
@@ -22,7 +22,7 @@ abstract class BreweryDatabase : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         BreweryDatabase::class.java,
-                        "brewery_listing_database"
+                        "brewery_database"
                     )
                         .fallbackToDestructiveMigration()
                         .build()
