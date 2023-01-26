@@ -29,7 +29,7 @@ class BreweryRepository(private val database: BreweryDatabase) {
     suspend fun refreshBreweries() {
         withContext(Dispatchers.IO) {
             val breweryList = retrofitService.getBreweryListAsync().await()
-            database.breweryDao.insertAll(*breweryList.asDatabaseModel())
+            database.breweryDao.insertBreweries(breweryList.asDatabaseModel())
         }
     }
 
