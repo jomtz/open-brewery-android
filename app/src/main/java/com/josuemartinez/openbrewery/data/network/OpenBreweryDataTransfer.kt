@@ -5,10 +5,13 @@ import com.josuemartinez.openbrewery.data.models.Brewery
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
-@JsonClass(generateAdapter = true)
-data class NetworkBreweryContainer(val breweries: List<NetworkBrewery>)
 
-//typealias NetworkBreweryContainer = List<NetworkBrewery>
+
+//@JsonClass(generateAdapter = true)
+//data class NetworkBreweryContainer(val breweries: List<NetworkBrewery>)
+
+//class NetworkBreweryContainer(val breweries: List<NetworkBrewery>)
+typealias NetworkBreweryContainer = List<NetworkBrewery>
 
 
 
@@ -47,7 +50,8 @@ data class NetworkBrewery(
         @Json(name = "updated_at")
         val updatedAt: String?,
         @Json(name = "created_at")
-        val createdAt: String?)
+        val createdAt: String?
+        )
 
 /**
  * Convert Network results to database objects
@@ -57,31 +61,31 @@ data class NetworkBrewery(
 
 
 
-fun NetworkBreweryContainer.asDomainModel(): List<Brewery> {
-    return breweries.map {
-        Brewery(
-            id = it.id,
-            name = it.name,
-            breweryType = it.breweryType,
-            street = it.street,
-            address2 = it.address2,
-            address3 = it.address3,
-            city = it.city,
-            state = it.state,
-            countyProvince = it.countyProvince,
-            postalCode = it.postalCode,
-            country = it.country,
-            longitude =it.longitude,
-            latitude = it.latitude,
-            phone = it.phone,
-            websiteUrl = it.websiteUrl,
-            updatedAt = it.updatedAt,
-            createdAt = it.createdAt)
-    }
-}
+//fun NetworkBreweryContainer.asDomainModel(): List<Brewery> {
+//    return breweries.map {
+//        Brewery(
+//            id = it.id,
+//            name = it.name,
+//            breweryType = it.breweryType,
+//            street = it.street,
+//            address2 = it.address2,
+//            address3 = it.address3,
+//            city = it.city,
+//            state = it.state,
+//            countyProvince = it.countyProvince,
+//            postalCode = it.postalCode,
+//            country = it.country,
+//            longitude =it.longitude,
+//            latitude = it.latitude,
+//            phone = it.phone,
+//            websiteUrl = it.websiteUrl,
+//            updatedAt = it.updatedAt,
+//            createdAt = it.createdAt)
+//    }
+//}
 
-fun NetworkBreweryContainer.asDatabaseModel(): Array<DatabaseBrewery> {
-    return breweries.map {
+fun NetworkBreweryContainer.asDatabaseModel(): List<DatabaseBrewery>   {
+    return map {
         DatabaseBrewery(
                 id = it.id,
                 name = it.name,
@@ -99,7 +103,8 @@ fun NetworkBreweryContainer.asDatabaseModel(): Array<DatabaseBrewery> {
                 phone = it.phone,
                 websiteUrl = it.websiteUrl,
                 updatedAt = it.updatedAt,
-                createdAt = it.createdAt)
-    }.toTypedArray()
+                createdAt = it.createdAt
+        )
+    }
 }
 

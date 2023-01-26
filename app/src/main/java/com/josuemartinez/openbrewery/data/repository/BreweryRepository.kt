@@ -9,6 +9,7 @@ import com.josuemartinez.openbrewery.data.network.OpenBreweryApi.retrofitService
 import com.josuemartinez.openbrewery.data.network.asDatabaseModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import java.lang.Exception
 
 class BreweryRepository(private val database: BreweryDatabase) {
 
@@ -17,7 +18,7 @@ class BreweryRepository(private val database: BreweryDatabase) {
      */
 
     val breweries: LiveData<List<Brewery>> =
-        Transformations.map(database.breweryDao.getBreweries()) {
+        Transformations.map(database.breweryDao.getAllBreweries()) {
             it.asDomainModel()
         }
 
@@ -27,10 +28,11 @@ class BreweryRepository(private val database: BreweryDatabase) {
      */
 
     suspend fun refreshBreweries() {
-        withContext(Dispatchers.IO) {
-            val breweryList = retrofitService.getBreweryListAsync().await()
-            database.breweryDao.insertBreweries(breweryList.asDatabaseModel())
-        }
+            withContext(Dispatchers.IO) {
+                val breweryResponse = retrofitService.getBreweryListAsync()
+                database.breweryDao.insertBreweries(breweryResponse.asDatabaseModel())
+            }
+
     }
 
 }

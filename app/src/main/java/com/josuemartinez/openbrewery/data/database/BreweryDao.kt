@@ -12,9 +12,7 @@ interface BreweryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertBreweries(breweries: List<DatabaseBrewery>)
 
-    @Query("select * from brewery_table")
-    fun getBreweries(): LiveData<List<DatabaseBrewery>>
-
-
+    @Query("SELECT * FROM brewery_table")
+    fun getAllBreweries(): LiveData<List<DatabaseBrewery>>
 
 }

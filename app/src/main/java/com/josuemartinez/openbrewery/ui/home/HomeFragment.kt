@@ -1,11 +1,13 @@
 package com.josuemartinez.openbrewery.ui.home
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -48,15 +50,8 @@ class HomeFragment : Fragment() {
             }
         })
 
-//        val recyclerView = binding.breweryList
-//        recyclerView.apply {
-//            // set a LinearLayoutManager to handle Android
-//            // RecyclerView behavior
-//            layoutManager = LinearLayoutManager(activity)
-//            // set the custom adapter to the RecyclerView
-//            adapter = HomeAdapter()
-//        }
     }
+    @SuppressLint("QueryPermissionsNeeded")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
 
@@ -91,10 +86,28 @@ class HomeFragment : Fragment() {
             adapter = adapter
         }
 
+        // Observer for the network error.
+        viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->
+            if (isNetworkError) {
+                onNetworkError()
+            }
+        })
 
 
         return binding.root
     }
+
+
+    /**
+     * Method for displaying a Toast error message for network errors.
+     */
+    private fun onNetworkError() {
+        if(!viewModel.isNetworkErrorShown.value!!) {
+            Toast.makeText(activity, "Network Error", Toast.LENGTH_LONG).show()
+            viewModel.onNetworkErrorShown()
+        }
+    }
+
     /**
      * Helper method to generate YouTube app links
      */
@@ -133,6 +146,7 @@ class HomeAdapter(private val callback: BreweryClick) : RecyclerView.Adapter<Hom
      * The breweries that our Adapter will show
      */
     var breweries: List<Brewery> = emptyList()
+        @SuppressLint("NotifyDataSetChanged")
         set(value) {
             field = value
             // Notify any registered observers that the data set has changed. This will cause every
