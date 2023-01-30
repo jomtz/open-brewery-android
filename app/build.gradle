@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace 'com.josuemartinez.openbrewery'
+    namespace 'com.josmnez.openbrewery'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.josuemartinez.openbrewery"
+        applicationId "com.josmnez.openbrewery"
         minSdk 22
         targetSdk 33
         versionCode 1

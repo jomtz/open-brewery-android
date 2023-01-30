@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.josuemartinez.openbrewery.R
+import com.josmnez.openbrewery.R
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
