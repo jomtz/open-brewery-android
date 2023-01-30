@@ -1,9 +1,9 @@
-package com.josuemartinez.openbrewery.data.database
+package com.josmnez.openbrewery.data.database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.josuemartinez.openbrewery.data.models.Brewery
+import com.josmnez.openbrewery.data.models.Brewery
 
 @Entity(tableName = "brewery_table")
 data class DatabaseBrewery constructor(

@@ -1,4 +1,4 @@
-package com.josuemartinez.openbrewery.ui.util
+package com.josmnez.openbrewery.ui.util
 
 import android.view.View
 import androidx.databinding.BindingAdapter

@@ -1,4 +1,4 @@
-package com.josuemartinez.openbrewery.ui.home
+package com.josmnez.openbrewery.ui.home
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -15,10 +15,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.josuemartinez.openbrewery.R
-import com.josuemartinez.openbrewery.data.models.Brewery
-import com.josuemartinez.openbrewery.databinding.FragmentHomeBinding
-import com.josuemartinez.openbrewery.databinding.ListItemBreweryBinding
+import com.josmnez.openbrewery.R
+import com.josmnez.openbrewery.data.models.Brewery
+import com.josmnez.openbrewery.databinding.FragmentHomeBinding
+import com.josmnez.openbrewery.databinding.ListItemBreweryBinding
 
 
 class HomeFragment : Fragment() {

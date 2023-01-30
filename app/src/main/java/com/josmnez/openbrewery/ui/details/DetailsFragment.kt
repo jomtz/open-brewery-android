@@ -1,11 +1,11 @@
-package com.josuemartinez.openbrewery.ui.details
+package com.josmnez.openbrewery.ui.details
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.josuemartinez.openbrewery.R
+import com.josmnez.openbrewery.R
 
 
 class DetailsFragment : Fragment() {

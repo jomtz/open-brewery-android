@@ -6,11 +6,11 @@
 
         <variable
             name="brewery"
-            type="com.josuemartinez.openbrewery.data.models.Brewery" />
+            type="com.josmnez.openbrewery.data.models.Brewery" />
 
         <variable
             name="breweryCallback"
-            type="com.josuemartinez.openbrewery.ui.home.BreweryClick"/>
+            type="com.josmnez.openbrewery.ui.home.BreweryClick"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

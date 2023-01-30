@@ -1,4 +1,4 @@
-package com.josuemartinez.openbrewery
+package com.josmnez.openbrewery
 
 import org.junit.Test
 

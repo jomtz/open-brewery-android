@@ -1,4 +1,4 @@
-package com.josuemartinez.openbrewery.data.database
+package com.josmnez.openbrewery.data.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

@@ -1,4 +1,4 @@
-package com.josuemartinez.openbrewery.ui
+package com.josmnez.openbrewery.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
