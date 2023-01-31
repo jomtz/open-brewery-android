@@ -3,6 +3,7 @@ package com.josmnez.openbrewery.data.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.josmnez.openbrewery.data.database.BreweryDatabase
+import com.josmnez.openbrewery.data.database.DatabaseBrewery
 import com.josmnez.openbrewery.data.database.asDomainModel
 import com.josmnez.openbrewery.data.models.Brewery
 import com.josmnez.openbrewery.data.network.OpenBreweryApi.retrofitService
@@ -21,6 +22,7 @@ class BreweryRepository(private val database: BreweryDatabase) {
             it.asDomainModel()
         }
 
+    fun getBrewery(id: Int) = database.breweryDao.getBreweryById(id)
     /**
      * Refresh the breweries stored in the offline cache.
      * To actually load the breweries for use, observe [breweries]
@@ -33,5 +35,6 @@ class BreweryRepository(private val database: BreweryDatabase) {
             }
 
     }
+
 
 }

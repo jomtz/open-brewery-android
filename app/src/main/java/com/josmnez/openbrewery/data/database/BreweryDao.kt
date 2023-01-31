@@ -15,4 +15,7 @@ interface BreweryDao {
     @Query("SELECT * FROM brewery_table")
     fun getAllBreweries(): LiveData<List<DatabaseBrewery>>
 
+    @Query("SELECT * FROM brewery_table WHERE id=:id")
+    fun getBreweryById(id: Int): LiveData<DatabaseBrewery>
+
 }

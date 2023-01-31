@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -8,9 +9,7 @@
             name="brewery"
             type="com.josmnez.openbrewery.data.models.Brewery" />
 
-        <variable
-            name="breweryCallback"
-            type="com.josmnez.openbrewery.ui.home.BreweryClick"/>
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,8 +17,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/name_text"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/brewery_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -29,40 +28,34 @@
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Brewery Name" />
 
-        <TextView
-            android:id="@+id/city_text"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/brewery_city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:text="@{brewery.city}"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name_text" />
+            app:layout_constraintTop_toBottomOf="@+id/brewery_name"
+            tools:text="Brewery City" />
 
-        <TextView
-            android:id="@+id/state_text"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/brewery_state"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:text="@{brewery.state}"
             android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@id/city_text"
-            app:layout_constraintTop_toBottomOf="@id/name_text" />
-
-        <View
-            android:id="@+id/clickableOverlay"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="?attr/selectableItemBackground"
-            android:onClick="@{() -> breweryCallback.onClick(brewery)}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@id/brewery_city"
+            app:layout_constraintTop_toBottomOf="@id/brewery_name"
+            tools:text="Brewery State" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

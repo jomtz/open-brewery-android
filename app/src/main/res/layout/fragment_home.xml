@@ -12,7 +12,7 @@
     </data>
 
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -20,15 +20,24 @@
             android:id="@+id/loading_spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:isNetworkError = "@{safeUnbox(viewModel.eventNetworkError)}"
+            android:layout_gravity="center"
             app:breweryList="@{viewModel.breweryList}"
-            android:layout_gravity="center" />
+            app:isNetworkError="@{safeUnbox(viewModel.eventNetworkError)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/brewery_list"
+            android:id="@+id/brewery_list_recycler_view"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            tools:listitem="@layout/list_item_brewery"/>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/list_item_brewery" />
 
-    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
