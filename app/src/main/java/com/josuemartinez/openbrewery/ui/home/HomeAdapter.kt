@@ -34,7 +34,7 @@ class HomeAdapter(private val clickListener: BreweryListener): ListAdapter<Datab
     override fun onBindViewHolder(holder: TextItemViewHolder, position: Int) {
         holder.viewDataBinding.also {
             it.brewery = breweries[position]
-            //it.clickListener = clickListener
+            it.clickListener = clickListener
         }
     }
 

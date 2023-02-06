@@ -2,6 +2,7 @@ package com.josuemartinez.openbrewery.ui.home
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.josuemartinez.openbrewery.R
@@ -31,17 +34,6 @@ class HomeFragment : Fragment() {
      */
     private lateinit var homeAdapter: HomeAdapter
 
-    override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(itemView, savedInstanceState)
-
-//        viewModel.breweryList.observe(viewLifecycleOwner) { breweries ->
-//            breweries.apply {
-//                homeAdapter.breweries = breweries
-//            }
-//        }
-
-    }
-    @SuppressLint("QueryPermissionsNeeded")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
 
@@ -50,6 +42,7 @@ class HomeFragment : Fragment() {
             R.layout.fragment_home,
             container,
             false)
+        Log.i("Home Fragment", "onCreateView")
 
         binding.lifecycleOwner = viewLifecycleOwner
 
@@ -57,11 +50,13 @@ class HomeFragment : Fragment() {
 
         //Populate recycler adapters
         homeAdapter = HomeAdapter(BreweryListener {
-//            findNavController().navigate(
-//
-//            )
+            Log.i("Home Fragment", "Brewery Listener")
+            findNavController()
+                .navigate(
+                    HomeFragmentDirections.actionHomeFragmentToDetailsFragment()
+                )
         })
-        binding.breweryListRecyclerView.adapter = homeAdapter
+
 
         viewModel.breweryList.observe(viewLifecycleOwner, Observer { breweries ->
             breweries.apply {
@@ -69,13 +64,16 @@ class HomeFragment : Fragment() {
             }
         })
 
-
-
-
         binding.root.findViewById<RecyclerView>(R.id.brewery_list_recycler_view).apply {
             layoutManager = LinearLayoutManager(context)
             adapter = adapter
         }
+
+        binding.breweryListRecyclerView.adapter = homeAdapter
+
+
+
+
 
         // Observer for the network error.
         viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->
