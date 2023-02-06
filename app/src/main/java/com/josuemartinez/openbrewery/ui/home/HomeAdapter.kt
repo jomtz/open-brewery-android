@@ -1,4 +1,4 @@
-package com.josmnez.openbrewery.ui.home
+package com.josuemartinez.openbrewery.ui.home
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.josmnez.openbrewery.data.database.DatabaseBrewery
-import com.josmnez.openbrewery.data.models.Brewery
-import com.josmnez.openbrewery.databinding.ListItemBreweryBinding
+import com.josuemartinez.openbrewery.data.database.DatabaseBrewery
+import com.josuemartinez.openbrewery.data.models.Brewery
+import com.josuemartinez.openbrewery.databinding.ListItemBreweryBinding
 
 
 class HomeAdapter(private val clickListener: BreweryListener): ListAdapter<DatabaseBrewery,

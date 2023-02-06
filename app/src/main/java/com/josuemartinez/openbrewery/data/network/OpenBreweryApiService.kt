@@ -1,4 +1,4 @@
-package com.josmnez.openbrewery.data.network
+package com.josuemartinez.openbrewery.data.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi

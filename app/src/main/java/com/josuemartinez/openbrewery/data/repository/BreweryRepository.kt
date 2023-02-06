@@ -1,13 +1,12 @@
-package com.josmnez.openbrewery.data.repository
+package com.josuemartinez.openbrewery.data.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
-import com.josmnez.openbrewery.data.database.BreweryDatabase
-import com.josmnez.openbrewery.data.database.DatabaseBrewery
-import com.josmnez.openbrewery.data.database.asDomainModel
-import com.josmnez.openbrewery.data.models.Brewery
-import com.josmnez.openbrewery.data.network.OpenBreweryApi.retrofitService
-import com.josmnez.openbrewery.data.network.asDatabaseModel
+import com.josuemartinez.openbrewery.data.database.BreweryDatabase
+import com.josuemartinez.openbrewery.data.database.asDomainModel
+import com.josuemartinez.openbrewery.data.models.Brewery
+import com.josuemartinez.openbrewery.data.network.OpenBreweryApi.retrofitService
+import com.josuemartinez.openbrewery.data.network.asDatabaseModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

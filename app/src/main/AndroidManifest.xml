@@ -18,7 +18,7 @@
         android:theme="@style/Theme.OpenBrewery"
         tools:targetApi="31">
         <activity
-            android:name="com.josmnez.openbrewery.ui.MainActivity"
+            android:name="com.josuemartinez.openbrewery.ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

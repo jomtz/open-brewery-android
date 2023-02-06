@@ -7,7 +7,7 @@
 
         <variable
             name="brewery"
-            type="com.josmnez.openbrewery.data.models.Brewery" />
+            type="com.josuemartinez.openbrewery.data.models.Brewery" />
 
 
     </data>

@@ -1,6 +1,6 @@
-package com.josmnez.openbrewery.data.network
+package com.josuemartinez.openbrewery.data.network
 
-import com.josmnez.openbrewery.data.database.DatabaseBrewery
+import com.josuemartinez.openbrewery.data.database.DatabaseBrewery
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 

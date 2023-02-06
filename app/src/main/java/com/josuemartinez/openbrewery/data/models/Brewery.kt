@@ -1,4 +1,4 @@
-package com.josmnez.openbrewery.data.models
+package com.josuemartinez.openbrewery.data.models
 
 /**
  * Domain objects are plain Kotlin data classes that represent the things in our app. These are the

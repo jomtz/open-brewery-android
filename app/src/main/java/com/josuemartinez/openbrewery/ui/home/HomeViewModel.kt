@@ -1,10 +1,10 @@
-package com.josmnez.openbrewery.ui.home
+package com.josuemartinez.openbrewery.ui.home
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.josmnez.openbrewery.data.database.getDatabase
-import com.josmnez.openbrewery.data.models.Brewery
-import com.josmnez.openbrewery.data.repository.BreweryRepository
+import com.josuemartinez.openbrewery.data.database.getDatabase
+import com.josuemartinez.openbrewery.data.models.Brewery
+import com.josuemartinez.openbrewery.data.repository.BreweryRepository
 import kotlinx.coroutines.launch
 import java.io.IOException
 

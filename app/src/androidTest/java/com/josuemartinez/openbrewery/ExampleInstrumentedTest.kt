@@ -1,4 +1,4 @@
-package com.josmnez.openbrewery
+package com.josuemartinez.openbrewery
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
