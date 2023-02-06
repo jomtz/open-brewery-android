@@ -7,15 +7,20 @@
 
         <variable
             name="brewery"
-            type="com.josuemartinez.openbrewery.data.models.Brewery" />
+            type="com.josuemartinez.openbrewery.data.database.DatabaseBrewery" />
 
+        <variable
+            name="clickListener"
+            type="com.josuemartinez.openbrewery.ui.home.BreweryListener" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:onClick="@{()-> clickListener.onClick(brewery)}">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/brewery_name"

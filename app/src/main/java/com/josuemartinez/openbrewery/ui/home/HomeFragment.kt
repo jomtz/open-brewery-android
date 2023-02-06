@@ -34,11 +34,11 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)
 
-        viewModel.breweryList.observe(viewLifecycleOwner) { breweries ->
-            breweries.apply {
-                homeAdapter.breweries = breweries
-            }
-        }
+//        viewModel.breweryList.observe(viewLifecycleOwner) { breweries ->
+//            breweries.apply {
+//                homeAdapter.breweries = breweries
+//            }
+//        }
 
     }
     @SuppressLint("QueryPermissionsNeeded")

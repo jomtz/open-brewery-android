@@ -14,7 +14,7 @@ import com.josuemartinez.openbrewery.databinding.ListItemBreweryBinding
 class HomeAdapter(private val clickListener: BreweryListener): ListAdapter<DatabaseBrewery,
         TextItemViewHolder>(BreweryDiffCallback()) {
 
-    var breweries = listOf<Brewery>()
+    var breweries = listOf<DatabaseBrewery>()
         @SuppressLint("NotifyDataSetChanged")
         set(value) {
             field = value
