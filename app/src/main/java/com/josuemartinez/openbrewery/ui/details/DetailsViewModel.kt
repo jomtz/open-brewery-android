@@ -3,11 +3,12 @@ package com.josuemartinez.openbrewery.ui.details
 import android.app.Application
 import androidx.lifecycle.*
 import com.josuemartinez.openbrewery.data.database.BreweryDatabase
+import com.josuemartinez.openbrewery.data.database.getDatabase
 import com.josuemartinez.openbrewery.data.repository.BreweryRepository
 
 class DetailsViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val database = BreweryDatabase.getDatabase(application)
+    private val database = getDatabase(application)
     private val breweryRepository = BreweryRepository(database)
 
 
