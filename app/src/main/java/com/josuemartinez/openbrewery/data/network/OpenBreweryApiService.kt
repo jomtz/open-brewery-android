@@ -32,7 +32,7 @@ private val retrofit = Retrofit.Builder()
 
 interface OpenBreweryApiService {
 
-    @GET("breweries")
+    @GET("v1/breweries")
     suspend fun getBreweryListAsync(): NetworkBreweryContainer
 }
 
